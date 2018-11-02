@@ -13,10 +13,16 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.app.model.Customer;
+import com.app.model.OrderMethod;
+import com.app.model.ShipmentType;
 import com.app.model.Uom;
+import com.app.model.Vendor;
+import com.app.model.WhUserType;
 
 
 /**
@@ -61,7 +67,9 @@ public class AppConfig {
 	public LocalSessionFactoryBean sfObj() {
 		LocalSessionFactoryBean sf=new LocalSessionFactoryBean();
 		sf.setDataSource(dsObj());
-		sf.setAnnotatedClasses(Uom.class);
+		sf.setAnnotatedClasses(Uom.class,WhUserType.class,OrderMethod.class,ShipmentType.class,
+														 Customer.class,Vendor.class);
+		
 		sf.setHibernateProperties(props());
 		return sf;
 	}
@@ -102,4 +110,9 @@ public class AppConfig {
 		return vr;
 	}
 
+	//6.MultiPartResolver
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+		return new CommonsMultipartResolver();
+	}
 }

@@ -14,5 +14,5 @@ public interface IUomDao {
 	public Uom getOneUom(Integer id);
 
 	public List<Uom> getAllUoms();
-
+	
 }
