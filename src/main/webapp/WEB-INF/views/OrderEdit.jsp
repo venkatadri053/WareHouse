@@ -5,21 +5,24 @@
 <form:form action="update" method="POST" modelAttribute="orderMethod">
 <pre>
 ID:<form:input path="id" readOnly="true"/>
-Order Mode: <form:radiobutton path="mode" value="Male"/>Male
-          <form:radiobutton path="mode" value="Female"/>Female
-Order Code: <form:input path="code"/>
-Order Method: <form:select path="method">
-    <form:option value="">-SELECT-</form:option>
-    <form:option value="FIFO">FIFO</form:option>
-    <form:option value="LIFO">LIFO</form:option>
-    <form:option value="FCFO">FCFO</form:option>
-    <form:option value="FEFO">FEFO</form:option>
-    </form:select>
-Order Accept:
-<form:checkbox path="accept" value="MULTIMODEL"/>MultiModel
-<form:checkbox path="accept" value="ACCEPTRETURN"/>AcceptReturn
-Description: <form:textarea path="dsc" />
-<input type="submit" value="update"/>
+
+ORDER MODE: <form:radiobutton path="mode" value="SALE"/>SALE <form:radiobutton path="mode" value="PURCHASE"/>PURCHASE
+
+ORDER CODE: <form:input path="code"/>
+
+ORDER METHOD: <form:select path="method">
+    							<form:option value="">-SELECT-</form:option>
+    							<form:option value="FIFO">FIFO</form:option>
+    							<form:option value="LIFO">LIFO</form:option>
+    							<form:option value="FCFO">FCFO</form:option>
+    							<form:option value="FEFO">FEFO</form:option>
+    							</form:select>
+
+ORDER ACCEPT:<form:checkbox path="accept" value="MULTIMODEL"/>MultiModel <form:checkbox path="accept" value="ACCEPTRETURN"/>AcceptReturn
+
+DESCRIPTION: <form:textarea path="dsc" />
+
+<input type="submit" value="UPDATE ORDER"/>
 </pre></form:form>
 ${message}
 </body>

@@ -23,13 +23,10 @@ public class WhUserTypePdfView  extends AbstractPdfView{
 
 		//download Option, with file name
 		response.addHeader("Content-Disposition", "attachment;filename=WhUser.pdf");
-		
 		//create element
 		Paragraph p=new Paragraph("Welcome");
 		//add to doc
 		document.add(p);
-		
-
 		//read data from Map
 		@SuppressWarnings("unchecked")
 		List<WhUserType> whUsers=(List<WhUserType>)model.get("whUser");
@@ -37,25 +34,27 @@ public class WhUserTypePdfView  extends AbstractPdfView{
 		PdfPTable t=new PdfPTable(9);
 		//add hearing columns
 		t.addCell("ID");
-		t.addCell("TYPE");
-		t.addCell("CODE");
-		t.addCell("FORTYPE");
-		t.addCell("EMAIL");
-		t.addCell("CONTACT");
-		t.addCell("IDTYPE");
+		t.addCell("USER TYPE");
+		t.addCell("USER CODE");
+		t.addCell("USER FOR");
+		t.addCell("USER EMAIL");
+		t.addCell("USER CONTACT");
+		t.addCell("USER IDTYPE");
 		t.addCell("IFOTHER");
 		t.addCell("IDNUM");
-		
+
 		//add db data to table
 		for(WhUserType w: whUsers) {
 			t.addCell(w.getId().toString());
-			t.addCell(w.getType());
-			t.addCell(w.getCode());
-			t.addCell(w.getForType());
-			t.addCell(w.getEmail());
-			t.addCell(w.getIdType());
+			t.addCell(w.getUserType());
+			t.addCell(w.getUserCode()+"");
+			t.addCell(w.getUserFor());
+			t.addCell(w.getUserEmail());
+			t.addCell(w.getUserContact());
+			t.addCell(w.getUserIdType());
 			t.addCell(w.getIfOther());
 			t.addCell(w.getIdNum());
+
 		}
 		//add to document
 		document.add(t);

@@ -6,11 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="uomtab")
 public class Uom {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="uomgen")
+	@GenericGenerator(name="uomgen",strategy="increment")
 	@Column(name="uid")
 	private Integer id;
 	@Column(name="utype")

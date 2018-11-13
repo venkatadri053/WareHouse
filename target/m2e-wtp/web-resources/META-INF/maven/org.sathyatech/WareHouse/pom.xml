@@ -6,7 +6,7 @@
 	<artifactId>WareHouse</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>WareHouse Maven Webapp</name>
+	<name>PracticeModule Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>

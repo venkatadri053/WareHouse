@@ -1,29 +1,25 @@
 package com.app.model;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="cust_tab")
 public class Customer {
 	@Id
 	@Column(name="c_id")
-	@GeneratedValue
+	@GeneratedValue(generator="custgen")
+	@GenericGenerator(name="custgen",strategy="increment")
 	private Integer custId;
 	@Column(name="c_code")
 	private String custCode;
 	@Column(name="c_addr")
 	private String custAddr;
-	@ElementCollection
-	@CollectionTable(name="cust_locs",joinColumns=@JoinColumn(name="c_id"))
-	@OrderColumn(name="pos")
 	@Column(name="c_locs_data")
 	private String custLocs;
 	@Column(name="c_enabled")

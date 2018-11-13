@@ -6,12 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="ventab")
 public class Vendor {
 	@Id
 	@Column(name="v_id")
-	@GeneratedValue
+	@GeneratedValue(generator="vengen")
+	@GenericGenerator(name="vengen",strategy="increment")
 	private Integer venId;
 	@Column(name="v_name")
 	private String venName;

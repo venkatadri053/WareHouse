@@ -34,33 +34,32 @@ public class WhUserTypeExcelView extends AbstractXlsxView{
 	private void setHead(Sheet sheet) {
 		Row row=sheet.createRow(0);
 		row.createCell(0).setCellValue("ID");
-		row.createCell(1).setCellValue("TYPE");
-		row.createCell(2).setCellValue("CODE");
-		row.createCell(3).setCellValue("FORTYPE");
-		row.createCell(4).setCellValue("EMAIL");
-		row.createCell(5).setCellValue("CONTACT");
-		row.createCell(6).setCellValue("IDTYPE");
+		row.createCell(1).setCellValue("USER TYPE");
+		row.createCell(2).setCellValue("USER CODE");
+		row.createCell(3).setCellValue("USER FOR");
+		row.createCell(4).setCellValue("USER EMAIL");
+		row.createCell(5).setCellValue("USER CONTACT");
+		row.createCell(6).setCellValue("USER IDTYPE");
 		row.createCell(7).setCellValue("IFOTHER");
 		row.createCell(8).setCellValue("IDNUM");
-	
+
 	}
 	private void setBody(Sheet sheet, List<WhUserType> whUserTypes) {
-		// TODO Auto-generated method stub
 		int rowNum=1;
 		for(WhUserType w:whUserTypes) {
 			Row row=sheet.createRow(rowNum++);
 			row.createCell(0).setCellValue(w.getId());
-			row.createCell(1).setCellValue(w.getType());
-			row.createCell(2).setCellValue(w.getCode());
-			row.createCell(3).setCellValue(w.getForType());
-			row.createCell(4).setCellValue(w.getEmail());
-			row.createCell(5).setCellValue(w.getContact());
-			row.createCell(6).setCellValue(w.getIdType());
+			row.createCell(1).setCellValue(w.getUserType());
+			row.createCell(2).setCellValue(w.getUserCode()+"");
+			row.createCell(3).setCellValue(w.getUserFor());
+			row.createCell(4).setCellValue(w.getUserEmail());
+			row.createCell(5).setCellValue(w.getUserContact());
+			row.createCell(6).setCellValue(w.getUserIdType());
 			row.createCell(7).setCellValue(w.getIfOther());
 			row.createCell(8).setCellValue(w.getIdNum());
-			
+
 		}
-		
+
 	}
-		
-	}
+
+}

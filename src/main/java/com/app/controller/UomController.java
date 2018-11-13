@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,7 @@ import com.app.controller.view.UomExcelView;
 import com.app.controller.view.UomPdfView;
 import com.app.model.Uom;
 import com.app.service.IUomService;
+import com.app.validator.UomValidator;
 
 @Controller
 @RequestMapping("/uom")
@@ -22,6 +24,11 @@ public class UomController {
 
 	@Autowired
 	private IUomService service;
+	
+	@Autowired
+	private UomValidator validator;
+
+
 
 	// 1.Show Reg. form
 	@RequestMapping("/register")
@@ -32,11 +39,15 @@ public class UomController {
 
 	// 2.Insert data from DB
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public String saveData(@ModelAttribute Uom uom, ModelMap map) {
+	public String saveData(@ModelAttribute Uom uom,Errors errors, ModelMap map) {
+		validator.validate(uom, errors);
+		if(!errors.hasErrors()) { //no errors
+
 		Integer id = service.saveUom(uom);
 		String msg = "Uom '" + id + "' saved";
 		map.addAttribute("message", msg);
 		map.addAttribute("uom", new Uom());
+		}
 		return "UomRegister";
 	}
 

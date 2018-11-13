@@ -8,11 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="doc_tabs")
 public class Document {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="docgen")
+	@GenericGenerator(name="docgen",strategy="increment")
 	@Column(name="fid")
 	private int fileId;
 	@Column(name="fname")

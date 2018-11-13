@@ -12,11 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="ordertab")
 public class OrderMethod {
 @Id
-@GeneratedValue
+@GeneratedValue(generator="ordergen")
+@GenericGenerator(name="ordergen",strategy="increment")
 @Column(name="id")
 private Integer id;
 @Column(name="mode")
@@ -25,7 +28,6 @@ private String mode;
 private String code;
 @Column(name="method")
 private String method;
-
 @ElementCollection(fetch=FetchType.EAGER)
 @CollectionTable(name="orderaccepts",joinColumns=@JoinColumn(name="id"))
 @OrderColumn(name="pos")
@@ -33,6 +35,7 @@ private String method;
 private List<String> accept;
 @Column(name="dsc")
 private String dsc;
+
 public OrderMethod() {
 	super();
 }

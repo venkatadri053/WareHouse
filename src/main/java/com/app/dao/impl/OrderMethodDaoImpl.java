@@ -14,19 +14,16 @@ public class OrderMethodDaoImpl implements IOrderMethodDao{
 	private HibernateTemplate ht;
 	@Override
 	public Integer saveOrderMethod(OrderMethod orderMethod) {
-		// TODO Auto-generated method stub
 		return (Integer)ht.save(orderMethod);
 	}
 
 	@Override
 	public void updateOrderMethod(OrderMethod orderMethod) {
-		// TODO Auto-generated method stub
 		ht.update(orderMethod);
 	}
 
 	@Override
 	public void deleteOrderMethod(Integer id) {
-		// TODO Auto-generated method stub
 		OrderMethod orderMethod=new OrderMethod();
 		orderMethod.setId(id);
 		ht.delete(orderMethod);
@@ -34,14 +31,23 @@ public class OrderMethodDaoImpl implements IOrderMethodDao{
 
 	@Override
 	public OrderMethod getOneOrderMethod(Integer id) {
-		// TODO Auto-generated method stub
 		return ht.get(OrderMethod.class, id);
 	}
 
 	@Override
 	public List<OrderMethod> getAllOrderMethods() {
-		// TODO Auto-generated method stub
 		return ht.loadAll(OrderMethod.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrderMethod> getOrderMethodByMode(String mode) {
+		String hql=" from " 
+							+ OrderMethod.class.getName()
+							+ "  where mode=? ";
+		@SuppressWarnings("deprecation")
+		List<OrderMethod>oms=(List<OrderMethod>) ht.find(hql, mode);
+		return oms;
 	}
 
 }

@@ -6,28 +6,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
-@Table(name="whtab")
+@Table(name="wh_user_tab")
 public class WhUserType {
 	@Id
-	@GeneratedValue
-	@Column(name="id")
+	@GeneratedValue(generator="wh_user_gen")
+	@GenericGenerator(name="wh_user_gen",strategy="increment")
+	@Column(name="user_id")
 	private Integer id;
-	@Column(name="type")
-	private String type;
-	@Column(name="code")
-	private String code;
-	@Column(name="fortype")
-	private String forType;
-	@Column(name="email")
-	private String email;
-	@Column(name="contact")
-	private String contact;
-	@Column(name="idtype")
-	private String idType;
-	@Column(name="ifother")
+	@Column(name="user_type")
+	private String userType;
+	@Column(name="user_code")
+	private String userCode;
+	@Column(name="user_for")
+	private String userFor;
+	@Column(name="user_email")
+	private String userEmail;
+	@Column(name="user_contact")
+	private String userContact;
+	@Column(name="user_idtype")
+	private String userIdType;
+	@Column(name="user_ifother")
 	private String ifOther;
-	@Column(name="idnum")
+	@Column(name="user_idnum")
 	private String idNum;
 	public WhUserType() {
 		super();
@@ -36,16 +39,16 @@ public class WhUserType {
 		super();
 		this.id = id;
 	}
-	public WhUserType(Integer id, String type, String code, String forType, String email, String contact, String idType,
-			String ifOther, String idNum) {
+	public WhUserType(Integer id, String userType, String userCode, String userFor, String userEmail,
+			String userContact, String userIdType, String ifOther, String idNum) {
 		super();
 		this.id = id;
-		this.type = type;
-		this.code = code;
-		this.forType = forType;
-		this.email = email;
-		this.contact = contact;
-		this.idType = idType;
+		this.userType = userType;
+		this.userCode = userCode;
+		this.userFor = userFor;
+		this.userEmail = userEmail;
+		this.userContact = userContact;
+		this.userIdType = userIdType;
 		this.ifOther = ifOther;
 		this.idNum = idNum;
 	}
@@ -55,41 +58,41 @@ public class WhUserType {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getType() {
-		return type;
+	public String getUserType() {
+		return userType;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
-	public String getCode() {
-		return code;
+	public String getUserCode() {
+		return userCode;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
 	}
-	public String getForType() {
-		return forType;
+	public String getUserFor() {
+		return userFor;
 	}
-	public void setForType(String forType) {
-		this.forType = forType;
+	public void setUserFor(String userFor) {
+		this.userFor = userFor;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public String getContact() {
-		return contact;
+	public String getUserContact() {
+		return userContact;
 	}
-	public void setContact(String contact) {
-		this.contact = contact;
+	public void setUserContact(String userContact) {
+		this.userContact = userContact;
 	}
-	public String getIdType() {
-		return idType;
+	public String getUserIdType() {
+		return userIdType;
 	}
-	public void setIdType(String idType) {
-		this.idType = idType;
+	public void setUserIdType(String userIdType) {
+		this.userIdType = userIdType;
 	}
 	public String getIfOther() {
 		return ifOther;
@@ -105,10 +108,9 @@ public class WhUserType {
 	}
 	@Override
 	public String toString() {
-		return "WhUserType [id=" + id + ", type=" + type + ", code=" + code + ", forType=" + forType + ", email="
-				+ email + ", contact=" + contact + ", idType=" + idType + ", ifOther=" + ifOther + ", idNum=" + idNum
-				+ "]";
+		return "WhUserType [id=" + id + ", userType=" + userType + ", userCode=" + userCode + ", userFor=" + userFor
+				+ ", userEmail=" + userEmail + ", userContact=" + userContact + ", userIdType=" + userIdType
+				+ ", ifOther=" + ifOther + ", idNum=" + idNum + "]";
 	}
-	
-	
+
 }
