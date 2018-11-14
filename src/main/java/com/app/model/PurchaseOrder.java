@@ -15,7 +15,7 @@ public class PurchaseOrder {
 	@GeneratedValue(generator="purgen")
 	@GenericGenerator(name="purgen",strategy="increment")
 	@Column(name="pur_id")
-	private Integer purchaseId;
+	private Integer id;
 	@Column(name="pur_code")
 	private String orderCode;
 	@Column(name="pur_ref_num")
@@ -31,10 +31,15 @@ public class PurchaseOrder {
 		super();
 	}
 
-	public PurchaseOrder(Integer purchaseId, String orderCode, String referenceNumber, String qualityCheck,
+	public PurchaseOrder(Integer id) {
+		super();
+		this.id = id;
+	}
+
+	public PurchaseOrder(Integer id, String orderCode, String referenceNumber, String qualityCheck,
 			String defaultStatus, String dsc) {
 		super();
-		this.purchaseId = purchaseId;
+		this.id = id;
 		this.orderCode = orderCode;
 		this.referenceNumber = referenceNumber;
 		this.qualityCheck = qualityCheck;
@@ -42,12 +47,12 @@ public class PurchaseOrder {
 		this.dsc = dsc;
 	}
 
-	public Integer getPurchaseId() {
-		return purchaseId;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setPurchaseId(Integer purchaseId) {
-		this.purchaseId = purchaseId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getOrderCode() {
@@ -92,9 +97,9 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [purchaseId=" + purchaseId + ", orderCode=" + orderCode + ", referenceNumber="
-				+ referenceNumber + ", qualityCheck=" + qualityCheck + ", defaultStatus=" + defaultStatus + ", dsc="
-				+ dsc + "]";
+		return "PurchaseOrder [id=" + id + ", orderCode=" + orderCode + ", referenceNumber=" + referenceNumber
+				+ ", qualityCheck=" + qualityCheck + ", defaultStatus=" + defaultStatus + ", dsc=" + dsc + "]";
 	}
+
 
 }

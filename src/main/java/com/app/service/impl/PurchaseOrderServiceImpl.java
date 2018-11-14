@@ -25,13 +25,13 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 	}
 
 	@Transactional
-	public void deletePurchaseOrder(Integer puchaseId) {
-		dao.deletePurchaseOrder(puchaseId);
+	public void deletePurchaseOrder(Integer id) {
+		dao.deletePurchaseOrder(id);
 	}
 
 	@Transactional(readOnly=true)
-	public PurchaseOrder getOnePurchaseOrderById(Integer purchaseId) {
-		return dao.getOnePurchaseOrderById(purchaseId);
+	public PurchaseOrder getOnePurchaseOrderById(Integer id) {
+		return dao.getOnePurchaseOrderById(id);
 	}
 
 	@Transactional

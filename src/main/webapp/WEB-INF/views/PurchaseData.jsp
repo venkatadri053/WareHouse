@@ -7,7 +7,7 @@
 
 <table border="1">
 <tr >
-<th>ID</th>
+<th>PURCHASE ID</th>
 <th>ORDER CODE</th>
 <th>REFERENCE NUMBER</th>
 <th>QUALITY CHECK</th>
@@ -20,14 +20,14 @@
 </tr>
 <c:forEach items="${list}" var="purchase">
 <tr>
-<td><c:out value="${purchase.purchaseId}"/></td>
+<td><c:out value="${purchase.id}"/></td>
 <td><c:out value="${purchase.orderCode}"/></td>
 <td><c:out value="${purchase.referenceNumber}"/></td>
 <td><c:out value="${purchase.qualityCheck}"/></td>
 <td><c:out value="${purchase.defaultStatus}"/></td>
 <td><c:out value="${purchase.dsc}"/></td>
-<td><a href= "delete?purchaseId=${purchase.purchaseId}">DELETE</a></td>
-<td><a href= "edit?purchaseId=${purchase.purchaseId}">UPDATE</a></td>
+<td><a href= "delete?id=${purchase.id}">DELETE</a></td>
+<td><a href= "edit?id=${purchase.id}">UPDATE</a></td>
 </tr>
 </c:forEach>
 </table>
