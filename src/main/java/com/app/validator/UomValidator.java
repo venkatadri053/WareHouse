@@ -1,5 +1,7 @@
 package com.app.validator;
 
+import java.util.regex.Pattern;
+
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -22,8 +24,8 @@ public class UomValidator implements Validator {
 		if("".equals(uom.getType())) {
 			errors.rejectValue("type", null, "Please choose one Type");
 		}
-		if("".equals(uom.getModel().trim())) {
-			errors.rejectValue("model", null, "Please Enter Model");
+		if(Pattern.compile("").matcher(uom.getModel()).matches()){
+			errors.rejectValue("model", null, "Enter Valid Model[4 to 10 UpperCase letters only]");
 		}
 		if("".equals(uom.getDsc().trim())) {
 			errors.rejectValue("dsc", null, "Please enter Description");

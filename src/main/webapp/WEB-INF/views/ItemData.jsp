@@ -38,12 +38,12 @@
 				<td>PURCHASE:<c:out value="${item.purchaseType.code}" /></td>
 
 
-				<td><c:forEach items="${itm.venUsers}" var="ven">
+				<td><c:forEach items="${item.venUsers}" var="ven">
 						<c:out value="${ven.userCode}" />,
 						</c:forEach>
 				</td>
 				
-				<td><c:forEach items="${itm.custUsers}" var="cust">
+				<td><c:forEach items="${item.custUsers}" var="cust">
 						<c:out value="${cust.userCode}" />,
 						</c:forEach>
 				</td>

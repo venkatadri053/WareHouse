@@ -116,10 +116,10 @@ public class ItemController {
 		List<OrderMethod> purchase = omService.getOrderMethodByMode("purchase");
 		map.addAttribute("purchase", purchase);
 
-		List<WhUserType>vendors=whUserService.getWhUSerTypesByType("Vendor");
+		List<WhUserType> vendors=whUserService.getWhUSerTypesByType("Vendor");
 		map.addAttribute("vendors", vendors);
 
-		List<WhUserType>customers=whUserService.getWhUSerTypesByType("Customer");
+		List<WhUserType> customers=whUserService.getWhUSerTypesByType("Customer");
 		map.addAttribute("customers",customers);
 
 		return "ItemEdit";

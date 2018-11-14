@@ -36,12 +36,12 @@ ORDERMETHOD:(PurchaseType)<form:select path="purchaseType.id">
 																<form:options items="${purchase}" itemLabel="code" itemValue="id"/>
 																</form:select>
 
-ITEM VENDORS:<form:select path="venUsers" >
+ITEM VENDORS:<form:select path="venUsers" multiple="true">
 							<form:option value="">-SELECT-</form:option>
 							<form:options items="${vendors}" itemLabel="userCode" itemValue="id"/>
 							</form:select>
 
-ITEM CUSTOMERS:<form:select path="custUsers">
+ITEM CUSTOMERS:<form:select path="custUsers" multiple="true">
  								<form:option value="">-SELECT-</form:option>
 								<form:options items="${customers}" itemLabel="userCode" itemValue="id"/>
 								</form:select>

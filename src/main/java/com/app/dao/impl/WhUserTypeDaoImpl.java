@@ -46,6 +46,7 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao{
 		String hql=" from  "
 							+ WhUserType.class.getName()
 							+ "  where userType=?";
+		@SuppressWarnings({ "unchecked", "deprecation" })
 		List<WhUserType>list=(List<WhUserType>) ht.find(hql, userType);
 		return list;
 	}
