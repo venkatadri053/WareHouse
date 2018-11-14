@@ -35,19 +35,17 @@ import com.app.model.VendorInvoice;
 import com.app.model.WhUserType;
 
 //ctrl+shift+O (imports)
-@Configuration // Java Config File
+@Configuration // Java Configurations File
 @EnableWebMvc  // make this as web application
-@EnableTransactionManagement // enable commit/rollback
+@EnableTransactionManagement // enable commit/roll back
 @ComponentScan(basePackages="com.app") //all files are created under this folder only
-@PropertySource("classpath:app.properties") //load properties file from src/main/resource folder
+@PropertySource("classpath:app.properties")  //load properties file from src/main/resource folder
 public class AppConfig implements WebMvcConfigurer {
-
-	@Autowired
-	private UserIdToObjectConverter userConverter;
-
 	//load properties into AppConfig
 	@Autowired
 	private Environment env;
+	@Autowired
+	private UserIdToObjectConverter userConverter;
 
 	//1. DataSource Bean
 	@Bean  //=> @Bean creating Object
